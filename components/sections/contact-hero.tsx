@@ -18,7 +18,7 @@ export function ContactHero() {
 
             {/* Headline */}
             <h1 className="text-3xl sm:text-4xl lg:text-[52px] font-extrabold text-[#051332] tracking-tight leading-[1.12]">
-              Let's Build a<br />
+              Let&apos;s Build a<br />
               Better Workplace<br />
               <span className="text-[#1E90FF]">Together</span>
             </h1>

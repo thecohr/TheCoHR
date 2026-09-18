@@ -1,5 +1,4 @@
 import { FadeIn } from "@/components/ui/fade-in";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export function ContactCTA() {
@@ -13,7 +12,7 @@ export function ContactCTA() {
           {/* Left Text */}
           <div className="space-y-2 max-w-2xl relative z-10 text-center md:text-left">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
-              Let's Start a Conversation
+              Let&apos;s Start a Conversation
             </h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
               Discover how The Co HR can help you streamline your HR operations, empower your people, and drive business growth.

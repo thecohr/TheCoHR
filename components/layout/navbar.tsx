@@ -15,9 +15,11 @@ import {
   Sparkles,
   Mail,
   MapPin,
+  Calendar,
 } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { BookCallButton } from "@/components/ui/book-call-button";
 
 const servicesItems = [
   {
@@ -68,7 +70,19 @@ export function Navbar() {
           </div>
 
           {/* Right Contact Info & Socials */}
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-4">
+            <a
+              href="https://calendly.com/thecohr-info/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 font-semibold text-[#1E90FF] hover:text-white transition-colors"
+            >
+              <Calendar className="w-3 h-3 text-[#1E90FF]" />
+              <span>Book a 30-Min Call</span>
+            </a>
+
+            <span className="text-slate-700">|</span>
+
             <a
               href="mailto:info@thecohr.com"
               className="flex items-center gap-1.5 hover:text-white transition-colors"
@@ -136,35 +150,35 @@ export function Navbar() {
       </div>
 
       {/* 2. MAIN FLOATING PILL NAVBAR */}
-      <div className="px-3 sm:px-6 py-1.5">
+      <div className="px-3 sm:px-6 py-2">
         <div
           className={cn(
-            "mx-auto w-full max-w-[1440px] bg-white rounded-full transition-all duration-300 border border-slate-100 px-4 sm:px-6 py-1.5 flex items-center justify-between",
+            "mx-auto w-full max-w-[1440px] bg-white rounded-full transition-all duration-300 border border-slate-100 px-5 sm:px-6 flex items-center justify-between shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
             isScrolled
-              ? "shadow-[0_4px_20px_rgba(0,0,0,0.06)] py-1"
-              : "shadow-[0_2px_15px_rgba(0,0,0,0.03)]"
+              ? "shadow-[0_6px_25px_rgba(0,0,0,0.07)] py-2"
+              : "py-2.5 sm:py-3"
           )}
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0 py-0.5" onClick={() => setIsOpen(false)}>
+          <Link href="/" className="flex items-center shrink-0 py-0.5" onClick={() => setIsOpen(false)}>
             <ProtectedImage
               src="/logo.png"
               alt="The Co HR Logo"
               width={280}
               height={85}
-              className="h-12 sm:h-14 lg:h-[56px] w-auto object-contain transition-transform duration-200 hover:scale-[1.01]"
+              className="h-11 sm:h-14 lg:h-[56px] w-auto object-contain transition-transform duration-200 hover:scale-[1.01]"
               priority
               unoptimized
             />
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-8">
             {/* Home */}
             <Link
               href="/"
               className={cn(
-                "relative text-[15px] font-semibold transition-colors py-2 flex flex-col items-center group",
+                "relative text-[14px] xl:text-[15px] font-semibold transition-colors py-2 flex flex-col items-center group",
                 pathname === "/" ? "text-[#1E90FF]" : "text-slate-800 hover:text-[#1E90FF]"
               )}
             >
@@ -182,7 +196,7 @@ export function Navbar() {
             <Link
               href="/about"
               className={cn(
-                "relative text-[15px] font-semibold transition-colors py-2 flex flex-col items-center group",
+                "relative text-[14px] xl:text-[15px] font-semibold transition-colors py-2 flex flex-col items-center group",
                 pathname === "/about" ? "text-[#1E90FF]" : "text-slate-800 hover:text-[#1E90FF]"
               )}
             >
@@ -211,7 +225,7 @@ export function Navbar() {
                   }
                 }}
                 className={cn(
-                  "relative flex items-center gap-1.5 text-[15px] font-semibold transition-colors group",
+                  "relative flex items-center gap-1 text-[14px] xl:text-[15px] font-semibold transition-colors group",
                   pathname.startsWith("/services") || isServicesHovered
                     ? "text-[#1E90FF]"
                     : "text-slate-800 hover:text-[#1E90FF]"
@@ -301,7 +315,7 @@ export function Navbar() {
             <Link
               href="/contact"
               className={cn(
-                "relative text-[15px] font-semibold transition-colors py-2 flex flex-col items-center group",
+                "relative text-[14px] xl:text-[15px] font-semibold transition-colors py-2 flex flex-col items-center group",
                 pathname === "/contact" ? "text-[#1E90FF]" : "text-slate-800 hover:text-[#1E90FF]"
               )}
             >
@@ -317,46 +331,45 @@ export function Navbar() {
           </nav>
 
           {/* Desktop Right Side: Divider + Phone Schedule Block + CTA */}
-          <div className="hidden lg:flex items-center gap-6">
-            <div className="h-9 w-px bg-slate-200" />
+          <div className="hidden lg:flex items-center gap-2.5 xl:gap-4">
+            <div className="h-8 w-px bg-slate-200" />
 
-            {/* Phone Info Block */}
-            <a href="tel:+919019724365" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-full bg-blue-50 text-[#1E90FF] flex items-center justify-center transition-transform duration-200 group-hover:scale-105 shadow-sm">
-                <PhoneCall className="w-4 h-4" />
+            {/* Phone Info Block (Shown on xl screens) */}
+            <a href="tel:+919019724365" className="hidden xl:flex items-center gap-2.5 group">
+              <div className="w-9 h-9 rounded-full bg-blue-50 text-[#1E90FF] flex items-center justify-center transition-transform duration-200 group-hover:scale-105 shadow-sm">
+                <PhoneCall className="w-3.5 h-3.5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-[15px] font-bold text-slate-900 group-hover:text-[#1E90FF] transition-colors leading-snug">
+                <span className="text-[13.5px] font-bold text-slate-900 group-hover:text-[#1E90FF] transition-colors leading-snug">
                   +91 90197 24365
                 </span>
-                <span className="text-[11px] text-[#1E90FF] font-semibold leading-none">
+                <span className="text-[10px] text-[#1E90FF] font-semibold leading-none">
                   Call Us Directly
                 </span>
               </div>
             </a>
 
+            {/* Book a Call Button */}
+            <BookCallButton
+              variant="secondary"
+              size="sm"
+              className="text-xs xl:text-sm px-3.5 xl:px-4 py-2"
+            />
+
             {/* CTA Button */}
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#1E90FF] px-7 py-3 text-sm font-bold text-white shadow-md shadow-blue-500/20 transition-all duration-200 hover:bg-[#187BCD] hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 active:translate-y-0"
+              className="group inline-flex items-center justify-center gap-1.5 rounded-full bg-[#1E90FF] px-4 xl:px-5 py-2 xl:py-2.5 text-xs xl:text-sm font-bold text-white shadow-md shadow-blue-500/20 transition-all duration-200 hover:bg-[#187BCD] hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>Book a Demo</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+              <span>Book Demo</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
           </div>
 
           {/* Mobile Navigation Controls */}
-          <div className="flex lg:hidden items-center gap-3">
-            <Link
-              href="/contact"
-              className="sm:inline-flex hidden items-center gap-1.5 rounded-full bg-[#1E90FF] px-4 py-2 text-xs font-bold text-white shadow-sm"
-            >
-              <span>Book Demo</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-
+          <div className="flex lg:hidden items-center gap-1">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger className="p-2.5 text-slate-800 hover:bg-slate-100 rounded-xl transition-colors focus:outline-none">
+              <SheetTrigger className="p-2 text-slate-800 hover:bg-slate-100 rounded-xl transition-colors focus:outline-none">
                 <Menu className="w-6 h-6" />
                 <span className="sr-only">Toggle menu</span>
               </SheetTrigger>
@@ -534,14 +547,24 @@ export function Navbar() {
                     <span>+91 90197 24365</span>
                   </a>
 
-                  <Link
-                    href="/contact"
-                    onClick={() => setIsOpen(false)}
-                    className="w-full bg-[#1E90FF] hover:bg-[#187BCD] text-white rounded-full py-3.5 font-bold text-sm justify-center flex items-center gap-2 shadow-md"
-                  >
-                    <span>Book a Demo</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  <div className="flex flex-col gap-2.5 w-full pt-1">
+                    <BookCallButton
+                      variant="primary"
+                      size="md"
+                      fullWidth
+                      label="Book a Call"
+                      onClick={() => setIsOpen(false)}
+                      className="h-11 rounded-xl font-bold text-sm"
+                    />
+                    <Link
+                      href="/contact"
+                      onClick={() => setIsOpen(false)}
+                      className="w-full h-11 bg-slate-100 hover:bg-slate-200 text-slate-900 rounded-xl font-bold text-sm justify-center flex items-center gap-2 transition-colors border border-slate-200"
+                    >
+                      <span>Book a Demo</span>
+                      <ArrowRight className="w-4 h-4 text-[#1E90FF]" />
+                    </Link>
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>

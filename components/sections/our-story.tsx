@@ -46,7 +46,7 @@ export function OurStory() {
                 Our goal is to help businesses build efficient workplaces where technology supports people and HR becomes a strategic advantage rather than an administrative burden.
               </p>
               <p>
-                Whether you're implementing your first HR system, outsourcing HR operations, or training your workforce, The Co HR delivers tailored solutions designed to support your growth at every stage.
+                Whether you&apos;re implementing your first HR system, outsourcing HR operations, or training your workforce, The Co HR delivers tailored solutions designed to support your growth at every stage.
               </p>
             </div>
           </FadeIn>

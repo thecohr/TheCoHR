@@ -62,7 +62,7 @@ function Connector() {
 }
 
 export function EmployeeJourney() {
-  const { eyebrow, heading, subheading, stages } = homeContent.employeeJourney;
+  const { eyebrow, subheading, stages } = homeContent.employeeJourney;
   const typedStages = stages as Array<{ name: string; description: string; icon: string }>;
   
   // Duplicate for seamless infinite loop

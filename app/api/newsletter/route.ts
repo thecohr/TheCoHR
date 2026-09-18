@@ -3,10 +3,10 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   try {
-    let body: any;
+    let body: Record<string, unknown> = {};
     try {
-      body = await request.json();
-    } catch (parseError: any) {
+      body = (await request.json()) as Record<string, unknown>;
+    } catch (parseError: unknown) {
       console.error("JSON Parse Error in /api/newsletter:", parseError);
       return NextResponse.json(
         { error: "Invalid form payload formatting. Please try again." },
@@ -139,7 +139,7 @@ export async function POST(request: Request) {
       success: true,
       message: "Thank you for subscribing to The Co HR newsletter!",
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error in /api/newsletter endpoint:", error);
     return NextResponse.json(
       { error: "An unexpected server error occurred. Please try again later." },

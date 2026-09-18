@@ -1,7 +1,6 @@
 import { FadeIn } from "@/components/ui/fade-in";
 import { homeContent } from "@/lib/content";
 import { ProtectedImage } from "@/components/ui/protected-image";
-import Link from "next/link";
 import { Headset, Settings, Users, GraduationCap, Building2, Star } from "lucide-react";
 
 export function EcosystemStats() {

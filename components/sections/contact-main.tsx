@@ -15,7 +15,9 @@ import {
   Search,
   AlertCircle,
   Loader2,
+  Calendar,
 } from "lucide-react";
+import { BookCallButton } from "@/components/ui/book-call-button";
 
 interface Country {
   code: string;
@@ -256,8 +258,9 @@ export function ContactMain() {
         phoneNumber: "",
         message: "",
       });
-    } catch (err: any) {
-      setErrorMessage(err.message || "We couldn't send your message right now. Please try again.");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "We couldn't send your message right now. Please try again.";
+      setErrorMessage(msg);
     } finally {
       setIsSubmitting(false);
     }
@@ -463,6 +466,20 @@ export function ContactMain() {
               <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
                 Choose the most convenient way to reach us.
               </p>
+            </div>
+
+            {/* Featured Schedule Call Banner */}
+            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-blue-200/90 shadow-sm space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#1E90FF] text-white flex items-center justify-center shrink-0 shadow-md">
+                  <Calendar className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-[#051332]">Schedule a 30-Min Meeting</h3>
+                  <p className="text-xs text-slate-500 font-medium">Pick a slot directly on Calendly</p>
+                </div>
+              </div>
+              <BookCallButton variant="primary" size="md" fullWidth label="Book a Call Now" />
             </div>
 
             <div className="space-y-5">

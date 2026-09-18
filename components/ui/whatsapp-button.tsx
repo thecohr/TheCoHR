@@ -1,14 +1,12 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
-
 export function WhatsAppButton() {
   const phoneNumber = "919019724365";
   const defaultMessage = "Hello The Co HR! I would like to know more about your HR ERP Software and Services.";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 group">
+    <div className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 lg:bottom-6 lg:right-6 z-50 group">
       {/* Tooltip Label */}
       <div className="absolute right-full top-1/2 -translate-y-1/2 mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none hidden sm:block">
         <div className="bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-xl whitespace-nowrap flex items-center gap-1.5 border border-slate-800">

@@ -3,11 +3,11 @@ import { homeContent } from "@/lib/content";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Database, RefreshCw, Building, ShieldCheck, Headset } from "lucide-react";
+import { ArrowRight, Database, RefreshCw, Building, Headset } from "lucide-react";
 import React from "react";
 
 export function TruePartner() {
-  const { eyebrow, heading, paragraph, cta, cards } = homeContent.truePartner;
+  const { eyebrow, paragraph, cta, cards } = homeContent.truePartner;
   const stats = (homeContent.truePartner as Record<string, unknown>).stats as Array<{value: string; label: string}> | undefined;
 
   const cardConfig = [

@@ -4,14 +4,15 @@ import { useState, useEffect } from "react";
 import { WifiOff, Wifi, RefreshCw } from "lucide-react";
 
 export function NetworkStatus() {
-  const [isOffline, setIsOffline] = useState(false);
+  const [isOffline, setIsOffline] = useState(() => {
+    if (typeof window !== "undefined") {
+      return !navigator.onLine;
+    }
+    return false;
+  });
   const [showReconnected, setShowReconnected] = useState(false);
 
   useEffect(() => {
-    // Initial check
-    if (typeof window !== "undefined") {
-      setIsOffline(!navigator.onLine);
-    }
 
     const handleOffline = () => {
       setIsOffline(true);

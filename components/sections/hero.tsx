@@ -1,10 +1,9 @@
 import { FadeIn } from "@/components/ui/fade-in";
-import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { ProtectedImage } from "@/components/ui/protected-image";
 import { homeContent } from "@/lib/content";
-import { cn } from "@/lib/utils";
-import { ArrowRight, Settings, Handshake, Users, UserPlus, TrendingUp, Trophy } from "lucide-react";
+import { BookCallButton } from "@/components/ui/book-call-button";
+import { ArrowRight, Settings, Handshake, Users, UserPlus, TrendingUp, Trophy, PhoneCall } from "lucide-react";
 import React from "react";
 
 const badgeIcons: Record<string, React.ReactNode> = {
@@ -14,7 +13,7 @@ const badgeIcons: Record<string, React.ReactNode> = {
 };
 
 export function Hero() {
-  const { overline, headline, ctas, trustBadges } = homeContent.hero;
+  const { overline, headline, trustBadges } = homeContent.hero;
   const headlineParts = headline.split("Smarter.");
 
   return (
@@ -133,24 +132,29 @@ export function Hero() {
             <p>Powerful HR ERP Software, Remote HR Services, and Expert Training — designed to simplify people management and <strong className="text-[#111827] font-bold">accelerate business growth.</strong></p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-2 lg:mt-3">
+          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5 mt-3 lg:mt-4">
+            {/* 1. Book a Demo */}
             <Link
               href="/contact"
-              className={cn(
-                buttonVariants({ variant: "default" }),
-                "bg-[#1E90FF] hover:bg-[#187BCD] text-white rounded-lg px-8 py-6 font-medium text-[16px] flex items-center justify-center gap-2"
-              )}
+              className="h-12 px-6 rounded-xl font-bold text-sm sm:text-base bg-[#1E90FF] hover:bg-[#187BCD] text-white shadow-md shadow-blue-500/20 hover:shadow-lg transition-all duration-200 inline-flex items-center justify-center gap-2 shrink-0 group active:scale-[0.98]"
             >
-              {ctas.primary} <ArrowRight className="w-5 h-5" />
+              <span>Book a Demo</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
+
+            {/* 2. Book a Call (Calendly) */}
+            <BookCallButton
+              variant="secondary"
+              className="h-12 px-6 rounded-xl text-sm sm:text-base"
+            />
+
+            {/* 3. Talk to an Expert (Phone) */}
             <a
               href="tel:+919019724365"
-              className={cn(
-                buttonVariants({ variant: "outline" }),
-                "border-[1.5px] border-[#1E90FF] bg-transparent text-[#1E90FF] hover:bg-blue-50 rounded-lg px-8 py-6 font-medium text-[16px] flex items-center justify-center"
-              )}
+              className="h-12 px-6 rounded-xl font-bold text-sm sm:text-base bg-white hover:bg-slate-50 text-slate-800 hover:text-[#1E90FF] border border-slate-200 hover:border-blue-300 shadow-sm transition-all duration-200 inline-flex items-center justify-center gap-2 shrink-0 group active:scale-[0.98]"
             >
-              {ctas.secondary}
+              <PhoneCall className="w-4 h-4 text-[#1E90FF] transition-transform duration-200 group-hover:scale-110" />
+              <span>Talk to an Expert</span>
             </a>
           </div>
 

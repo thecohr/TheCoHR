@@ -8,7 +8,6 @@ import {
   Monitor,
   Users,
   GraduationCap,
-  Settings,
   Headset,
   Mail,
   Phone,
@@ -18,7 +17,8 @@ import {
   Leaf,
   ArrowRight,
   CheckCircle2,
-  Loader2
+  Loader2,
+  Calendar,
 } from "lucide-react";
 
 export function Footer() {
@@ -50,8 +50,9 @@ export function Footer() {
 
       setNewsletterSubscribed(true);
       setNewsletterEmail("");
-    } catch (err: any) {
-      setNewsletterError(err.message || "Failed to subscribe. Please try again.");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Failed to subscribe. Please try again.";
+      setNewsletterError(message);
     } finally {
       setNewsletterSubmitting(false);
     }
@@ -191,20 +192,38 @@ export function Footer() {
             <h4 className="text-white font-bold text-sm sm:text-base tracking-wide relative inline-block">
               Our Services
             </h4>
-            <ul className="space-y-3.5 sm:space-y-4">
+            <ul className="space-y-3 sm:space-y-3.5">
               {[
-                { label: "HR ERP Software", icon: <Monitor className="w-4 h-4 text-[#1E90FF]" />, href: "/services#hr-erp-software" },
-                { label: "Remote HR Services", icon: <Users className="w-4 h-4 text-[#1E90FF]" />, href: "/services#remote-hr-services" },
-                { label: "ERP Training & Upskilling", icon: <GraduationCap className="w-4 h-4 text-[#1E90FF]" />, href: "/services#erp-training" },
-                { label: "Book a Demo", icon: <Headset className="w-4 h-4 text-[#1E90FF]" />, href: "/contact" },
+                { label: "HR ERP Software", icon: <Monitor className="w-4 h-4 text-[#1E90FF]" />, href: "/services#hr-erp-software", external: false },
+                { label: "Remote HR Services", icon: <Users className="w-4 h-4 text-[#1E90FF]" />, href: "/services#remote-hr-services", external: false },
+                { label: "ERP Training", icon: <GraduationCap className="w-4 h-4 text-[#1E90FF]" />, href: "/services#erp-training", external: false },
+                { label: "Book a 30-Min Call", icon: <Calendar className="w-4 h-4 text-[#1E90FF]" />, href: "https://calendly.com/thecohr-info/30min", external: true },
+                { label: "Book a Demo", icon: <Headset className="w-4 h-4 text-[#1E90FF]" />, href: "/contact", external: false },
               ].map((service) => (
                 <li key={service.label}>
-                  <Link href={service.href} className="group flex items-center gap-3 text-xs lg:text-sm text-slate-400 hover:text-white transition-colors">
-                    <div className="w-8 h-8 rounded-lg bg-[#1E90FF]/10 border border-[#1E90FF]/30 flex items-center justify-center shrink-0 group-hover:border-[#1E90FF] group-hover:bg-[#1E90FF]/25 transition-all">
-                      {service.icon}
-                    </div>
-                    <span className="leading-snug">{service.label}</span>
-                  </Link>
+                  {service.external ? (
+                    <a
+                      href={service.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-3 text-xs lg:text-sm text-slate-400 hover:text-white transition-colors"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-[#1E90FF]/10 border border-[#1E90FF]/30 flex items-center justify-center shrink-0 group-hover:border-[#1E90FF] group-hover:bg-[#1E90FF]/25 transition-all">
+                        {service.icon}
+                      </div>
+                      <span className="leading-snug">{service.label}</span>
+                    </a>
+                  ) : (
+                    <Link
+                      href={service.href}
+                      className="group flex items-center gap-3 text-xs lg:text-sm text-slate-400 hover:text-white transition-colors"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-[#1E90FF]/10 border border-[#1E90FF]/30 flex items-center justify-center shrink-0 group-hover:border-[#1E90FF] group-hover:bg-[#1E90FF]/25 transition-all">
+                        {service.icon}
+                      </div>
+                      <span className="leading-snug">{service.label}</span>
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

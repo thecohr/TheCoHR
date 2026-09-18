@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ProtectedImage } from "@/components/ui/protected-image";
 import { homeContent } from "@/lib/content";
 import { cn } from "@/lib/utils";
+import { BookCallButton } from "@/components/ui/book-call-button";
 import { ArrowRight, Users, BarChart2, Lightbulb } from "lucide-react";
 import React from "react";
 
@@ -66,21 +67,22 @@ export function HomeCta() {
             </FadeIn>
 
             {/* CTA Buttons */}
-            <FadeIn direction="up" delay={0.3} className="flex flex-wrap items-center gap-4">
+            <FadeIn direction="up" delay={0.3} className="flex flex-wrap items-center gap-3">
               <Link 
                 href="/contact"
                 className={cn(
                   buttonVariants({ variant: "default" }),
-                  "bg-[#1E90FF] hover:bg-[#187BCD] text-white rounded-xl px-7 py-3.5 font-bold text-[14px] flex items-center gap-2 shadow-lg shadow-blue-500/20"
+                  "bg-[#1E90FF] hover:bg-[#187BCD] text-white rounded-xl px-6 py-3.5 font-bold text-[14px] flex items-center gap-2 shadow-lg shadow-blue-500/20"
                 )}
               >
                 {ctas.primary} <ArrowRight className="w-4 h-4" />
               </Link>
+              <BookCallButton variant="white" size="md" className="py-3.5 px-6 text-[14px]" />
               <a
                 href="tel:+919019724365"
                 className={cn(
                   buttonVariants({ variant: "outline" }),
-                  "border-2 border-[#1E90FF] text-[#1E90FF] bg-white hover:bg-blue-50/50 rounded-xl px-7 py-3.5 font-bold text-[14px] flex items-center transition-colors"
+                  "border border-slate-300 text-slate-700 bg-white/80 hover:bg-white hover:text-[#1E90FF] rounded-xl px-5 py-3.5 font-bold text-[14px] flex items-center transition-colors"
                 )}
               >
                 {ctas.secondary}

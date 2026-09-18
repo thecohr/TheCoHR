@@ -2,6 +2,7 @@ import { FadeIn } from "@/components/ui/fade-in";
 import { ProtectedImage } from "@/components/ui/protected-image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { BookCallButton } from "@/components/ui/book-call-button";
 
 export function ServicesCTA() {
   return (
@@ -12,7 +13,7 @@ export function ServicesCTA() {
           {/* Left Column: Content & Buttons */}
           <FadeIn direction="right" duration={0.6} className="lg:col-span-6 space-y-5">
             <div className="text-xs font-bold uppercase tracking-widest text-[#1E90FF]">
-              LET'S WORK TOGETHER
+              LET&apos;S WORK TOGETHER
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#051332] tracking-tight leading-tight">
@@ -23,18 +24,20 @@ export function ServicesCTA() {
               Discover how our technology, expertise, and training can help you build a stronger, more efficient workforce.
             </p>
 
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
                 href="/contact"
-                className="bg-[#1E90FF] hover:bg-[#187BCD] text-white rounded-xl px-7 py-3.5 font-semibold text-base transition-all shadow-md hover:shadow-lg flex items-center gap-2 group"
+                className="bg-[#1E90FF] hover:bg-[#187BCD] text-white rounded-xl px-6 py-3.5 font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg flex items-center gap-2 group"
               >
                 <span>Book a Demo</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
 
+              <BookCallButton variant="white" size="md" className="py-3.5 px-6 text-sm sm:text-base" />
+
               <a
                 href="tel:+919019724365"
-                className="bg-white/90 hover:bg-white border border-blue-200 text-[#1E90FF] hover:text-[#187BCD] rounded-xl px-7 py-3.5 font-semibold text-base transition-all shadow-sm hover:shadow"
+                className="bg-white/90 hover:bg-white border border-blue-200 text-slate-700 hover:text-[#1E90FF] rounded-xl px-5 py-3.5 font-bold text-sm sm:text-base transition-all shadow-sm hover:shadow"
               >
                 Talk to an Expert
               </a>

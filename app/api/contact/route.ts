@@ -3,10 +3,10 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   try {
-    let body: any;
+    let body: Record<string, unknown> = {};
     try {
-      body = await request.json();
-    } catch (parseError: any) {
+      body = (await request.json()) as Record<string, unknown>;
+    } catch (parseError: unknown) {
       console.error("JSON Parse Error in /api/contact:", parseError);
       return NextResponse.json(
         { error: "Invalid form payload formatting. Please check your inputs and try again." },
@@ -228,7 +228,7 @@ export async function POST(request: Request) {
       { success: true, message: "Enquiry submitted successfully." },
       { status: 200 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error in /api/contact endpoint:", error);
     return NextResponse.json(
       { error: "We couldn't send your message right now. Please try again later." },
