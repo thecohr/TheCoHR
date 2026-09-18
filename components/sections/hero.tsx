@@ -17,7 +17,7 @@ export function Hero() {
   const headlineParts = headline.split("Smarter.");
 
   return (
-    <section className="relative bg-white lg:min-h-[700px] flex items-center pt-0 overflow-hidden">
+    <section className="relative bg-white lg:min-h-[640px] flex items-center pt-2 lg:pt-3 pb-6 lg:pb-8 overflow-hidden">
       {/* Desktop Background & Floating UI - Confined to right 65% for better aspect ratio */}
       <div className="absolute inset-y-0 right-0 w-full lg:w-[65%] z-20 hidden lg:block pointer-events-none">
 
@@ -33,8 +33,6 @@ export function Hero() {
 
           {/* Soft fade overlay over the left edge of the photo */}
           <div className="absolute inset-y-0 left-0 w-[240px] bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-
-
 
           {/* Floating UI: Calligraphy Text & Green Swoosh */}
           <div className="absolute top-[3%] right-[2%] xl:right-[3%] z-40 transform -rotate-2 pointer-events-none">
@@ -105,12 +103,12 @@ export function Hero() {
       </div>
 
       {/* Grid Container for Text (Desktop & Mobile) - z-30 sits IN FRONT OF background blend gradient (z-0) */}
-      <div className="mx-auto w-full max-w-[1800px] px-6 lg:px-10 xl:px-16 relative z-30 pointer-events-none grid grid-cols-1 lg:grid-cols-12 gap-1 lg:gap-8 lg:pt-0 lg:pb-8">
+      <div className="mx-auto w-full max-w-[1800px] px-6 lg:px-10 xl:px-16 relative z-30 pointer-events-none grid grid-cols-1 lg:grid-cols-12 gap-1 lg:gap-8 pt-0 pb-2 lg:py-4">
         
         {/* Left Column (Text & CTAs) */}
-        <div className="lg:col-span-6 flex flex-col gap-5 z-20 pt-0 lg:pt-4 pb-2 lg:pb-0 pointer-events-auto">
+        <div className="lg:col-span-6 flex flex-col gap-4 z-20 pt-0 lg:pt-1 pb-2 lg:pb-0 pointer-events-auto">
           <div>
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center gap-4 mb-2.5">
               <p className="text-xs lg:text-[13px] font-bold tracking-[0.15em] text-[#1E90FF] uppercase">
                 {overline}
               </p>
